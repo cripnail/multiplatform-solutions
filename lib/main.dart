@@ -91,10 +91,6 @@ class _MyHomePageState extends State<MyHomePage> {
           Expanded(
             child: SingleChildScrollView(
                 child: webView('https://flutter.dev')
-              // Text(_htmlText),
-              //       AppPlatform.isMobile
-              //           ? const WebView(initialUrl: 'https://flutter.dev/')
-              //           : const HyperLink(link: 'https://flutter.dev/'),
             ),
           ),
           const Divider(

@@ -11,17 +11,18 @@ class AppPlatform {
     'windows': CustomPlatform.windows,
   };
 
-  static CustomPlatform _getPlatform
-      () {
+  static CustomPlatform _getPlatform() {
     if (kIsWeb) {
       return CustomPlatform.web;
     }
     return _platformMap[Platform.operatingSystem] ?? CustomPlatform.undefined;
   }
-  static CustomPlatform getPlatform =>_getPlatform();
+
+  static CustomPlatform getPlatform() => _getPlatform();
 
   static bool get isMobile =>
-      platform == CustomPlatform.ios || platform == CustomPlatform.android;
+      getPlatform() == CustomPlatform.ios ||
+      getPlatform() == CustomPlatform.android;
 }
 
 enum CustomPlatform {
