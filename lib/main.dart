@@ -1,11 +1,14 @@
-import 'mock_webview.dart';
-    if (dart.library.io) 'none_web_platform_webview.dart'
-    if (dart.library.html) 'web_platform_webview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:html/parser.dart' as html_parser;
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'dart:io';
+import 'dart:io' if (dart.library.html) 'dart:html';
+import 'mock_webview.dart';
+    // if (dart.library.io) 'none_web_platform_webview.dart'
+    // if (dart.library.html) 'web_platform_webview.dart';
+
+// import 'dart:io';
+
 
 
 void main() {
