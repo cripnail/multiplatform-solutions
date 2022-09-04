@@ -4,12 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:io' if (dart.library.html) 'dart:html';
 import 'mock_webview.dart';
-    // if (dart.library.io) 'none_web_platform_webview.dart'
-    // if (dart.library.html) 'web_platform_webview.dart';
-
-// import 'dart:io';
-
-
+// import 'dart:io' if (dart.library.io) 'none_web_platform_webview.dart';
+// import 'dart:html' if (dart.library.html) 'web_platform_webview.dart';
 
 void main() {
   runApp(const MyApp());
@@ -59,6 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
       _htmlText = result.body;
       _pageTitle = html_parser.parse(result.body).querySelector('h1')!.text;
       _corsHeader = cors;
+      webView(String link) => Container();
     });
   }
 
@@ -89,12 +86,10 @@ class _MyHomePageState extends State<MyHomePage> {
           Text(
             _corsHeader,
             style:
-            const TextStyle(color: Colors.red, fontWeight: FontWeight.w700),
+                const TextStyle(color: Colors.red, fontWeight: FontWeight.w700),
           ),
           Expanded(
-            child: SingleChildScrollView(
-                child: webView('https://flutter.dev')
-            ),
+            child: SingleChildScrollView(child: webView('https://flutter.dev')),
           ),
           const Divider(
             thickness: 5,
@@ -140,8 +135,7 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.only(bottom: 8),
               child: Text(kIsWeb
                   ? 'APPLICATION RUNNING ON WEB'
-                  : 'APPLICATION RUNNING ON ${Platform.operatingSystem
-                  .toUpperCase()}'),
+                  : 'APPLICATION RUNNING ON ${Platform.operatingSystem.toUpperCase()}'),
             ),
           ),
         ],
