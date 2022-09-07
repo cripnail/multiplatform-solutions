@@ -55,7 +55,6 @@ class _MyHomePageState extends State<MyHomePage> {
       _htmlText = result.body;
       _pageTitle = html_parser.parse(result.body).querySelector('h1')!.text;
       _corsHeader = cors;
-      webView(String link) => Container();
     });
   }
 
