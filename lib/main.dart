@@ -3,9 +3,9 @@ import 'package:html/parser.dart' as html_parser;
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:io' if (dart.library.html) 'dart:html';
-import 'mock_webview.dart';
-// import 'dart:io' if (dart.library.io) 'none_web_platform_webview.dart';
-// import 'dart:html' if (dart.library.html) 'web_platform_webview.dart';
+import 'mock_webview.dart'
+    if (dart.library.io) 'none_web_platform_webview.dart'
+    if (dart.library.html) 'web_platform_webview.dart';
 
 void main() {
   runApp(const MyApp());
@@ -87,9 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
             style:
                 const TextStyle(color: Colors.red, fontWeight: FontWeight.w700),
           ),
-          Expanded(
-            child: SingleChildScrollView(child: webView('https://flutter.dev')),
-          ),
+          SingleChildScrollView(child: webView('https://flutter.dev')),
           const Divider(
             thickness: 5,
           ),
