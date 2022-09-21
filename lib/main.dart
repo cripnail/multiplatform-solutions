@@ -82,12 +82,15 @@ class _MyHomePageState extends State<MyHomePage> {
           const SizedBox(
             height: 12,
           ),
-          Text(
-            _corsHeader,
-            style:
-                const TextStyle(color: Colors.red, fontWeight: FontWeight.w700),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 8.0),
+            child: Text(
+              _corsHeader,
+              style:
+                  const TextStyle(color: Colors.red, fontWeight: FontWeight.w700, fontSize: 20.0,),
+            ),
           ),
-          SingleChildScrollView(child: webView('https://flutter.dev')),
+          Expanded(child: webView('https://flutter.dev')),
           const Divider(
             thickness: 5,
           ),
